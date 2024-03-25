@@ -1,0 +1,16 @@
+server:
+  port: 8082
+dubbo:
+  application:
+    name: gateway
+    qos-enable: false
+  registry:
+    address: nacos://localhost:8848
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: api_route
+          uri: http://localhost:8080
+          predicates:
+            - Path=/api/**
